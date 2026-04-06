@@ -1,0 +1,36 @@
+/* .img-container img {
+  object-fit: cover;
+} */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .img-container {
+    height: 300px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .outro h2 {
+    font-size: 1.8rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .img-container {
+    height: 250px;
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .outro {
+    padding: 2rem 1rem;
+  }
+}
