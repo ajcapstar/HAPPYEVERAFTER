@@ -6,7 +6,7 @@ const Page = () => {
   return (
     <>
       <section className="hero">
-        <h1>ME WED DIVINE</h1>
+        <h1>ME WED DIVINE Lorem ipsum dolor sit,</h1>
       </section>
 
       <section className="spotlight">
@@ -25,7 +25,41 @@ const Page = () => {
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Tenetur quod cum officiis aut odio debitis quisquam. Reiciendis,
-                et magnam laboriosam aspernatur accusamus suscipit?
+                et magnam laboriosam aspernatur accusamus suscipit? Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Eaque quis sit
+                exercitationem autem accusantium vero recusandae atque facilis a
+                sapiente.
+              </p>
+            </div>
+          </div>
+          <div className="col">
+            <ResponsiveImage
+              src="/images/image2.jpg"
+              alt="desc"
+              className="img-container"
+            />
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col">
+            <ResponsiveImage
+              src="/images/image3.jpg"
+              alt="desc"
+              className="img-container"
+            />
+          </div>
+          <div className="col">
+            <div className="card">
+              <h2>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam eaque rerum
+              </h2>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Accusantium atque aliquid, possimus tempore magnam magni officia
+                corporis ex quibusdam ullam soluta, ut eaque suscipit nesciunt
+                ratione minus asperiores odio doloribus!
               </p>
             </div>
           </div>
@@ -33,19 +67,12 @@ const Page = () => {
 
         <div className="row">
           <ResponsiveImage
-            src="/images/image2.jpg"
+            src="/images/image1.svg"
             alt="desc"
             className="img-container"
           />
         </div>
 
-        <div className="row">
-          <ResponsiveImage
-            src="/images/image3.jpg"
-            alt="desc"
-            className="img-container"
-          />
-        </div>
         <div className="svg-path">
           <svg
             width="391"
@@ -63,7 +90,9 @@ const Page = () => {
         </div>
       </section>
 
-      <section className="outro">SHE SAID YES</section>
+      <section className="outro">
+        <h1>SHE SAID YES</h1>
+      </section>
     </>
   );
 };
