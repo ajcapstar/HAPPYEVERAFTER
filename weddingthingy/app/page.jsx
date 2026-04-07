@@ -5,7 +5,7 @@ import ResponsiveImage from "./components/ResponsiveImage"; // Adjust path as ne
 import "./page.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";  
+import Lenis from "lenis";
 
 const Page = () => {
   useEffect(() => {
@@ -125,7 +125,7 @@ const Page = () => {
             <path
               id="stroke-path"
               d="M315.657 37.3113C104.217 -39.9995 -34.3431 124.311 46.6569 180.311C127.657 236.311 295.016 36.5811 337.657 201.311C380.298 366.041 17.3299 571.489 54.6569 366.311C91.984 161.133 339.657 125.311 371.657 387.311C403.657 649.311 4.65695 535.311 4.65695 535.311"
-              stroke="#81AEE3"
+              stroke="#152902ff"
               strokeWidth="34"
             />
           </svg>
