@@ -1,12 +1,22 @@
 import Image from "next/image";
 
-const ResponsiveImage = ({ src, alt, height = "400px", width = "100%", className = "" }) => (
-  <div
+const ResponsiveImage = ({ 
+  src, 
+  alt, 
+  width = "100%", 
+  height = "auto", 
+  className = "" 
+}) => (
+  <Image
+    src={src}
+    alt={alt}
+    width={0}
+    height={0}
+    sizes="100vw"
     className={className}
-    style={{ position: "relative", width, height }}
-  >
-    <Image src={src} alt={alt} fill style={{ objectFit: "cover" }} />
-  </div>
+    // We pass the width/height props directly into the CSS scale
+    style={{ width, height, objectFit: "cover" }}
+  />
 );
 
 export default ResponsiveImage;
