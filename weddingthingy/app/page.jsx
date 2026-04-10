@@ -56,6 +56,8 @@ const Page = () => {
             src="/images/image1.svg"
             alt="desc"
             className="img-container"
+            loading="eager"
+            unoptimized={true}
           />
         </div>
 
@@ -120,6 +122,7 @@ const Page = () => {
             height="577"
             viewBox="0 0 391 577"
             fill="none"
+            preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path

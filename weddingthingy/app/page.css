@@ -17,7 +17,7 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  background-color: rgb(215, 168, 168);
+  background-color: rgb(247, 230, 230);
   color: black;
 }
 h1,
@@ -110,40 +110,8 @@ p {
 
 .spotlight .svg-path svg {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
-
-/* @media (max-width: 768px) {
-  .img-container {
-    height: 100%;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .outro h2 {
-    font-size: 1.8rem;
-  }
-
-  .card {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .img-container {
-    height: 250px;
-  }
-
-  .hero {
-    padding: 2rem 1rem;
-  }
-
-  .outro {
-    padding: 2rem 1rem;
-  }
-} */
 
 @media (max-width: 1000px) {
   h1,
