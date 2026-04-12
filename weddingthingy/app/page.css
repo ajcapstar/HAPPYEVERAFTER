@@ -161,3 +161,45 @@ p {
     width: 275%;
   }
 }
+
+/* --- Infinite Marquee --- */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #152902; /* Match your stroke color or contrast it */
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee-scroll 20s linear infinite;
+}
+
+.marquee-content span {
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgb(247, 230, 230);
+  text-transform: uppercase;
+  padding-right: 2rem; /* Gap between repetitions */
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Moves left by half (since content is duplicated) */
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive adjustment */
+@media (max-width: 1000px) {
+  .marquee-content span {
+    font-size: 2.5rem;
+  }
+}

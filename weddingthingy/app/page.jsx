@@ -40,6 +40,17 @@ const Page = () => {
       });
     }
 
+    // 5. Marquee Fade Effect
+    gsap.to(".marquee-container", {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".outro", // Start fading when the Outro enters
+        start: "top 80%",   // Start fade when outro is 80% down the screen
+        end: "top 20%",     // Fully invisible before outro hits the top
+        scrub: true,
+      },
+    });
+
     // Cleanup lenis on dismount to prevent memory leaks in React
     return () => lenis.destroy();
   }, []);
@@ -130,6 +141,17 @@ const Page = () => {
               strokeWidth="34"
             />
           </svg>
+        </div>
+      </section>
+
+      {/* Infinite Marquee Section */}
+      <section className="marquee-container">
+        <div className="marquee-content">
+          {/* Duplicate the span to ensure a seamless loop */}
+          <span>SAVE THE DATE • OUR WEDDING • JUNE 2026 • </span>
+          <span>SAVE THE DATE • OUR WEDDING • JUNE 2026 • </span>
+          <span>SAVE THE DATE • OUR WEDDING • JUNE 2026 • </span>
+          <span>SAVE THE DATE • OUR WEDDING • JUNE 2026 • </span>
         </div>
       </section>
 
