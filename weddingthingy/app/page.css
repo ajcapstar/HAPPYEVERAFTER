@@ -97,6 +97,9 @@ p {
   flex-direction: column;
   gap: 1rem;
 }
+.spotlight .card h2 {
+  text-align: center;
+}
 
 .spotlight .svg-path {
   position: absolute;
