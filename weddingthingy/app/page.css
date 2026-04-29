@@ -38,7 +38,14 @@ p {
   font-weight: 500;
 }
 
-.hero,
+.envelope-hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  background-color: #f7e6e6;
+  overflow: hidden;
+}
+
 .outro {
   position: relative;
   width: 100%;
@@ -51,10 +58,34 @@ p {
   overflow: hidden;
 }
 
-.hero h1,
+.envelope-hero h1,
 .outro h1 {
   width: 60%;
   text-align: center;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.6;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 3rem;
+  background-color: currentColor;
+  animation: scrollBounce 2s infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.3; }
+  50% { transform: translateY(10px); opacity: 1; }
 }
 
 .spotlight {
@@ -202,4 +233,26 @@ p {
   .marquee-content span {
     font-size: 2.5rem;
   }
+}
+
+/* 3D Envelope Classes */
+.perspective-\[1000px\] {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.origin-top {
+  transform-origin: top;
+}
+
+.envelope-hero {
+  width: 100%;
+  height: 100svh;
 }

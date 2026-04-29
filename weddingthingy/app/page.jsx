@@ -7,6 +7,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 
+import Envelope from "./components/Envelope";
+
 const Page = () => {
   useEffect(() => {
     // 1. Register the plugin safely on the client
@@ -45,8 +47,8 @@ const Page = () => {
       opacity: 0,
       scrollTrigger: {
         trigger: ".outro", // Start fading when the Outro enters
-        start: "top 80%",   // Start fade when outro is 80% down the screen
-        end: "top 20%",     // Fully invisible before outro hits the top
+        start: "top 80%", // Start fade when outro is 80% down the screen
+        end: "top 20%", // Fully invisible before outro hits the top
         scrub: true,
       },
     });
@@ -57,8 +59,12 @@ const Page = () => {
 
   return (
     <>
-      <section className="hero">
-        <h1>ME WED DIVINE Lorem ipsum dolor sit,</h1>
+      <section className="envelope-hero">
+        <Envelope />
+        <div className="scroll-indicator">
+          <span>Scroll</span>
+          <div className="scroll-line"></div>
+        </div>
       </section>
 
       <section className="spotlight">
@@ -83,14 +89,6 @@ const Page = () => {
               </p>
             </div>
           </div>
-          {/* </div>
-          <div className="col">
-            <ResponsiveImage
-              src="/images/image2.jpg"
-              alt="desc"
-              className="img-container"
-            />
-          </div> */}
         </div>
 
         <div className="row">
@@ -143,6 +141,13 @@ const Page = () => {
           </svg>
         </div>
       </section>
+      {/* <div className="col">
+            <ResponsiveImage
+              src="/images/image2.jpg"
+              alt="desc"
+              className="img-container"
+            />
+          </div> */}
 
       {/* Infinite Marquee Section */}
       <section className="marquee-container">
