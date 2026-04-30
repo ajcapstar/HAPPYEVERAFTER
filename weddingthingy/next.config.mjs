@@ -10,9 +10,9 @@ const nextConfig = {
     root: "./",
   },
 
-  images: {
-    unoptimized: false,
-  },
+  // images: {
+  //   unoptimized: false,
+  // },
 };
 
 export default nextConfig;
