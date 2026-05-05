@@ -7,7 +7,7 @@ const nextConfig = {
   transpilePackages: ["gsap", "@gsap/react"],
 
   turbopack: {
-    root: "./",
+    root: "/home/hp/HAPPYEVERAFTER/weddingthingy/",
   },
 
   // images: {
