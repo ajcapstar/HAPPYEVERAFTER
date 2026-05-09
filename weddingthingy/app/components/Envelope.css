@@ -13,8 +13,10 @@
   width: 500px;
   height: 350px;
   perspective: 1000px;
-  transform-style: preserve-3d; /* required so rotateX on .top-flap renders in true 3D */
-  overflow: hidden; /* clip overflow here instead of on the container */
+  transform-style: preserve-3d;
+  /* required so rotateX on .top-flap renders in true 3D */
+  overflow: hidden;
+  /* clip overflow here instead of on the container */
 }
 
 @media (max-width: 767px) {
@@ -51,7 +53,8 @@
   padding: 1.5rem;
   border: 0.5px solid #e7e5e4;
   cursor: default;
-  pointer-events: none; /* disabled until flap is open */
+  pointer-events: none;
+  /* disabled until flap is open */
   transition: box-shadow 0.3s ease;
 }
 
@@ -59,7 +62,8 @@
 .invitation-card.ready-to-pull {
   pointer-events: auto;
   cursor: grab;
-  z-index: 20; /* keep it below the envelope body (z-index 30) */
+  z-index: 20;
+  /* keep it below the envelope body (z-index 30) */
   box-shadow: 0 30px 40px -8px rgba(0, 0, 0, 0.25);
 }
 
@@ -107,15 +111,16 @@
   height: 100%;
   z-index: 30;
   object-fit: contain;
-  pointer-events: none; /* clicks pass through to the peeking card tab */
+  pointer-events: none;
+  /* clicks pass through to the peeking card tab */
 }
 
 .top-flap {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 120%;
-  height: 120%;
+  left: 3.3em;
+  width: 85%;
+  height: 110%;
   z-index: 40;
   transform-origin: top;
   transform-style: preserve-3d;
@@ -123,11 +128,16 @@
 
 .flap-image {
   position: absolute;
-  width: 70%; /* Changed from fixed 150svh */
-  height: auto; /* Maintain aspect ratio */
-  top: 32%; /* Center vertically */
-  left: 44%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Perfect centering */
+  width: 70%;
+  /* Changed from fixed 150svh */
+  height: auto;
+  /* Maintain aspect ratio */
+  top: 32%;
+  /* Center vertically */
+  left: 44%;
+  /* Center horizontally */
+  transform: translate(-50%, -50%);
+  /* Perfect centering */
   object-fit: contain;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -139,11 +149,13 @@
   top: 52%;
   left: 51%;
   transform: translate(-50%, -50%);
-  width: 7em;
-  z-index: 60; /* on top of everything */
+  width: 5em !important;
+  /* <-- ADD !important HERE */
+  z-index: 60;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 @media (max-width: 767px) {
   .wax-seal {
