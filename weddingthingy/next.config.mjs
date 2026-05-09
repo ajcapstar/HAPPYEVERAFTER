@@ -6,9 +6,7 @@ const nextConfig = {
   // This tells Next.js these components need client-side rendering
   transpilePackages: ["gsap", "@gsap/react"],
 
-  turbopack: {
-    root: "/home/hp/HAPPYEVERAFTER/weddingthingy/",
-  },
+
 
   // images: {
   //   unoptimized: false,

@@ -73,8 +73,6 @@ const Envelope = () => {
           alt="Envelope Body"
           className="envelope-body"
           objectFit="contain"
-          width="unset"
-          height="unset"
         />
 
         {/* 4. FLAP LAYER — rotates 180° on stage 1 */}
@@ -84,8 +82,6 @@ const Envelope = () => {
             alt="Envelope Flap"
             className="flap-image"
             objectFit="contain"
-            width="unset"
-            height="unset"
           />
         </div>
 
@@ -97,8 +93,6 @@ const Envelope = () => {
             alt="Wax Seal"
             className="wax-seal"
             objectFit="contain"
-            width="unset"
-            height="unset"
           />
         )}
       </div>

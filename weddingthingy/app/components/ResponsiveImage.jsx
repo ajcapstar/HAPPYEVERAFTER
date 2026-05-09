@@ -5,6 +5,9 @@ const ResponsiveImage = ({
   alt,
   objectFit = "cover",
   className = "",
+  width,
+  height,
+  style,
   ...props
 }) => (
   <Image
@@ -14,7 +17,7 @@ const ResponsiveImage = ({
     height={0}
     sizes="100vw"
     className={className}
-    style={{ objectFit }}
+    style={{ width: "100%", height: "auto", objectFit, ...style }}
     {...props}
   />
 );
