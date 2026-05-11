@@ -1,11 +1,13 @@
 .envelope-container {
-  position: relative;
-  width: 100%;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
   height: 100vh;
+  background-color: white;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* overflow:hidden removed — it collapses the 3D rendering context for children */
 }
 
 .envelope-wrapper {
@@ -15,7 +17,7 @@
   perspective: 1000px;
   transform-style: preserve-3d;
   /* required so rotateX on .top-flap renders in true 3D */
-  overflow: hidden;
+  overflow: visible;
   /* clip overflow here instead of on the container */
 }
 
@@ -26,21 +28,21 @@
   }
 }
 
-.envelope-back {
+/* .envelope-back {
   position: absolute;
   inset: 0;
   background-color: #0b332a;
   border-radius: 0.125rem;
   z-index: 10;
   box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
-}
+} */
 
 .invitation-card {
   position: absolute;
-  left: 5%;
-  top: 5%;
-  width: 90%;
-  height: 90%;
+  left: 25.4%;
+  top: 13%;
+  width: 51.9%;
+  height: 55%;
   background-color: #faf9f6;
   z-index: 20;
   box-shadow:
@@ -69,6 +71,11 @@
 
 .invitation-card.ready-to-pull:hover {
   box-shadow: 0 36px 48px -8px rgba(0, 0, 0, 0.35);
+}
+
+.invitation-card.final-clickable {
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .card-border {

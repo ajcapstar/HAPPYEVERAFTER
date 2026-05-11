@@ -7,7 +7,7 @@ import "./Envelope.css";
 
 const Envelope = () => {
   const container = useRef();
-  // "closed" → "opened" (flap up, card peeking) → "pulled" (card fully out)
+  // "closed" → "opened" → "pulled" → "revealing" → "revealed"
   const [animationStage, setAnimationStage] = useState("closed");
   const { contextSafe } = useGSAP({ scope: container });
 
@@ -50,6 +50,28 @@ const Envelope = () => {
     });
   });
 
+  // STAGE 3 — Click the pulled card: Zoom out and fade to reveal site
+  const handleFinalReveal = contextSafe(() => {
+    if (animationStage !== "pulled") return;
+    setAnimationStage("revealing");
+
+    const tl = gsap.timeline({
+      onComplete: () => setAnimationStage("revealed"),
+    });
+
+    tl.to(".envelope-wrapper", {
+      scale: 2.5,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power2.inOut",
+    }).to(".envelope-container", {
+      opacity: 0,
+      duration: 0.5,
+    }, "-=0.5");
+  });
+
+  if (animationStage === "revealed") return null;
+
   return (
     <div ref={container} className="envelope-container">
       <div className="envelope-wrapper">
@@ -58,8 +80,9 @@ const Envelope = () => {
 
         {/* 2. CARD LAYER — gets its own click once the flap is open */}
         <div
-          className={`invitation-card ${animationStage === "opened" ? "ready-to-pull" : ""}`}
-          onClick={handlePullCard}
+          className={`invitation-card ${animationStage === "opened" ? "ready-to-pull" : ""
+            } ${animationStage === "pulled" ? "final-clickable" : ""}`}
+          onClick={animationStage === "opened" ? handlePullCard : handleFinalReveal}
         >
           <div className="card-border" />
           <h2 className="card-title">Rachel &amp; Michael</h2>
