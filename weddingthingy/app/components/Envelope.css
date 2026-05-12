@@ -59,6 +59,7 @@
   pointer-events: none;
   /* disabled until flap is open */
   transition: box-shadow 0.3s ease;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
 /* Stage 2: card is peeking and ready for the final reveal click */

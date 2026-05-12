@@ -38,7 +38,7 @@ const Envelope = () => {
       );
   });
 
-  // STAGE 2 — Click the peeking card: Zoom out and fade to reveal site
+  // STAGE 2 — Click the peeking card: Zoom effect + fade to reveal site
   const handleFinalReveal = contextSafe(() => {
     if (animationStage !== "opened") return;
     setAnimationStage("revealing");
@@ -50,21 +50,36 @@ const Envelope = () => {
     // 1. Envelope pieces fade out first
     tl.to([".top-flap", ".envelope-body", ".envelope-back"], {
       opacity: 0,
-      duration: 0.8,
+      duration: 0.5,
       ease: "power2.out",
     })
-    // 2. Invitation card fades out next
+    // 2. Invitation card zoom effect (matching the hero reveal style)
     .to(".invitation-card", {
-      scale: 1.1,
-      opacity: 0,
-      duration: 1,
+      scale: 4, // Zoom in dramatically
+      clipPath: "polygon(20% 10%, 80% 10%, 80% 90%, 20% 90%)",
+      duration: 1.5,
       ease: "power2.inOut",
-    }, "+=0.2") 
+      onStart: () => {
+        // Inner content scales back to normal during zoom to prevent blur/distortion
+        gsap.to(
+          ".invitation-card .card-title, .invitation-card .card-divider, .invitation-card .card-subtitle",
+          {
+            scale: 0.25, // Counteract parent scale (1/4 of 4 = 1)
+            duration: 1.5,
+            ease: "power2.inOut",
+          },
+        );
+      },
+    })
     // 3. Final container fade to reveal the site
-    .to(".envelope-container", {
-      opacity: 0,
-      duration: 0.6,
-    }, "-=0.4");
+    .to(
+      ".envelope-container",
+      {
+        opacity: 0,
+        duration: 0.6,
+      },
+      "-=0.8",
+    );
   });
 
   if (animationStage === "revealed") return null;
