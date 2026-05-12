@@ -25,15 +25,16 @@ const Envelope = () => {
       duration: 0.6,
       ease: "back.in(1.7)",
     })
-      .to(".top-flap", { rotateX: 180, duration: 1.2 }, "-=0.2")
+      .to(".top-flap", { rotateX: 180, y: 70, duration: 1.2 }, "-=0.2")
+      .set(".top-flap", { zIndex: 15 }, "-=0.6") // Mid-way through 1.2s flip, move behind card
       .to(
         ".invitation-card",
         {
-          y: "-10%", // card peeks out — still grabbable
-          duration: 0.8,
+          y: "-20%", // card peeks out — still grabbable
+          duration: 1,
           ease: "power2.out",
         },
-        "-=0.5",
+        "+=0.6",
       );
   });
 
@@ -42,12 +43,25 @@ const Envelope = () => {
     if (animationStage !== "opened") return;
     setAnimationStage("pulled");
 
-    gsap.to(".invitation-card", {
-      y: "-85%",
-      scale: 1.1,
-      duration: 1.5,
-      ease: "back.out(1.4)",
+    const tl = gsap.timeline();
+
+    // Bring the card to the front so it stays clickable and visible over the fading body
+    tl.set(".invitation-card", {
+      zIndex: 100,
     });
+
+    // First, fade out the envelope body and flap to reveal the full card behind them
+    tl.to(".envelope-body, .top-flap", {
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.inOut",
+    })
+      .to(".invitation-card", {
+        y: "-85%",
+        scale: 1.1,
+        duration: 1.5,
+        ease: "back.out(1.4)",
+      }, "+=0.2"); // Sequential delay for impact
   });
 
   // STAGE 3 — Click the pulled card: Zoom out and fade to reveal site

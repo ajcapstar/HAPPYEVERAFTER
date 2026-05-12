@@ -40,9 +40,9 @@
 .invitation-card {
   position: absolute;
   left: 25.4%;
-  top: 13%;
+  top: 14%;
   width: 51.9%;
-  height: 55%;
+  height: 54%;
   background-color: #faf9f6;
   z-index: 20;
   box-shadow:
@@ -129,6 +129,8 @@
   width: 85%;
   height: 110%;
   z-index: 40;
+  pointer-events: none;
+  /* Allows clicks to pass through to the card beneath */
   transform-origin: top;
   transform-style: preserve-3d;
 }
@@ -146,8 +148,6 @@
   transform: translate(-50%, -50%);
   /* Perfect centering */
   object-fit: contain;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
   transform-style: preserve-3d;
 }
 
