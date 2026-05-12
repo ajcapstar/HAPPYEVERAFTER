@@ -45,17 +45,19 @@ const Envelope = () => {
 
     const tl = gsap.timeline();
 
-    // Bring the card to the front so it stays clickable and visible over the fading body
+    // 1. Immediately bring the card to the front layer (exempt from the shell fade)
     tl.set(".invitation-card", {
       zIndex: 100,
     });
 
-    // First, fade out the envelope body and flap to reveal the full card behind them
-    tl.to(".envelope-body, .top-flap", {
+    // 2. Fade out the envelope "shell" (body, flap, and back)
+    // This leaves the card floating alone on the white background
+    tl.to(".envelope-body, .top-flap, .envelope-back", {
       opacity: 0,
-      duration: 0.8,
+      duration: 1,
       ease: "power2.inOut",
     })
+      // 3. Delay the card animation slightly so the envelope fades first
       .to(".invitation-card", {
         y: "-85%",
         scale: 1.1,
