@@ -7,7 +7,7 @@ import "./Envelope.css";
 
 const Envelope = () => {
   const container = useRef();
-  // "closed" → "opened" → "pulled" → "revealing" → "revealed"
+  // "closed" → "opened" → "revealing" → "revealed"
   const [animationStage, setAnimationStage] = useState("closed");
   const { contextSafe } = useGSAP({ scope: container });
 
@@ -38,52 +38,33 @@ const Envelope = () => {
       );
   });
 
-  // STAGE 2 — Click the peeking card: card slides fully out
-  const handlePullCard = contextSafe(() => {
-    if (animationStage !== "opened") return;
-    setAnimationStage("pulled");
-
-    const tl = gsap.timeline();
-
-    // 1. Immediately bring the card to the front layer (exempt from the shell fade)
-    tl.set(".invitation-card", {
-      zIndex: 100,
-    });
-
-    // 2. Fade out the envelope "shell" (body, flap, and back)
-    // This leaves the card floating alone on the white background
-    tl.to(".envelope-body, .top-flap, .envelope-back", {
-      opacity: 0,
-      duration: 1,
-      ease: "power2.inOut",
-    })
-      // 3. Delay the card animation slightly so the envelope fades first
-      .to(".invitation-card", {
-        y: "-85%",
-        scale: 1.1,
-        duration: 1.5,
-        ease: "back.out(1.4)",
-      }, "+=0.2"); // Sequential delay for impact
-  });
-
-  // STAGE 3 — Click the pulled card: Zoom out and fade to reveal site
+  // STAGE 2 — Click the peeking card: Zoom out and fade to reveal site
   const handleFinalReveal = contextSafe(() => {
-    if (animationStage !== "pulled") return;
+    if (animationStage !== "opened") return;
     setAnimationStage("revealing");
 
     const tl = gsap.timeline({
       onComplete: () => setAnimationStage("revealed"),
     });
 
-    tl.to(".envelope-wrapper", {
-      scale: 2.5,
+    // 1. Envelope pieces fade out first
+    tl.to([".top-flap", ".envelope-body", ".envelope-back"], {
       opacity: 0,
-      duration: 1.2,
+      duration: 0.8,
+      ease: "power2.out",
+    })
+    // 2. Invitation card fades out next
+    .to(".invitation-card", {
+      scale: 1.1,
+      opacity: 0,
+      duration: 1,
       ease: "power2.inOut",
-    }).to(".envelope-container", {
+    }, "+=0.2") 
+    // 3. Final container fade to reveal the site
+    .to(".envelope-container", {
       opacity: 0,
-      duration: 0.5,
-    }, "-=0.5");
+      duration: 0.6,
+    }, "-=0.4");
   });
 
   if (animationStage === "revealed") return null;
@@ -96,9 +77,8 @@ const Envelope = () => {
 
         {/* 2. CARD LAYER — gets its own click once the flap is open */}
         <div
-          className={`invitation-card ${animationStage === "opened" ? "ready-to-pull" : ""
-            } ${animationStage === "pulled" ? "final-clickable" : ""}`}
-          onClick={animationStage === "opened" ? handlePullCard : handleFinalReveal}
+          className={`invitation-card ${animationStage === "opened" ? "ready-to-pull" : ""}`}
+          onClick={animationStage === "opened" ? handleFinalReveal : undefined}
         >
           <div className="card-border" />
           <h2 className="card-title">Rachel &amp; Michael</h2>

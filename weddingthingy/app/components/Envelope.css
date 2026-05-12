@@ -61,10 +61,10 @@
   transition: box-shadow 0.3s ease;
 }
 
-/* Stage 2: card is peeking and ready to be pulled out */
+/* Stage 2: card is peeking and ready for the final reveal click */
 .invitation-card.ready-to-pull {
   pointer-events: auto;
-  cursor: grab;
+  cursor: pointer;
   z-index: 20;
   /* keep it below the envelope body (z-index 30) */
   box-shadow: 0 30px 40px -8px rgba(0, 0, 0, 0.25);
@@ -72,11 +72,6 @@
 
 .invitation-card.ready-to-pull:hover {
   box-shadow: 0 36px 48px -8px rgba(0, 0, 0, 0.35);
-}
-
-.invitation-card.final-clickable {
-  cursor: pointer;
-  pointer-events: auto;
 }
 
 .card-border {
