@@ -1,3 +1,7 @@
+/* ==========================================================================
+   1. MAIN CONTAINER & WRAPPER LAYOUT
+   ========================================================================== */
+
 .envelope-container {
   position: fixed;
   inset: 0;
@@ -15,29 +19,25 @@
   width: 500px;
   height: 350px;
   perspective: 1000px;
-  transform-style: preserve-3d;
-  /* required so rotateX on .top-flap renders in true 3D */
-  overflow: visible;
-  /* clip overflow here instead of on the container */
+  transform-style: preserve-3d; /* Required so rotateX on .top-flap renders in true 3D */
+  overflow: visible;           /* Clip overflow here instead of on the container */
 }
 
-@media (max-width: 767px) {
-  .envelope-wrapper {
-    width: 350px;
-    height: 250px;
-  }
-}
+/* ==========================================================================
+   2. ENVELOPE PIECES & STRUCTURAL LAYERS (Stacked by z-index)
+   ========================================================================== */
 
+/* Layer 10: Base Backpiece */
 .envelope-back {
   position: absolute;
   inset: 0;
   background-color: #f3f2f1;
-  /* Match the envelope theme */
   border-radius: 0.125rem;
   z-index: 10;
   border: 1px solid #e7e5e4;
 }
 
+/* Layer 20: Core Invitation Card Base */
 .invitation-card {
   position: absolute;
   left: 25.4%;
@@ -56,24 +56,88 @@
   padding: 1.5rem;
   border: 0.5px solid #e7e5e4;
   cursor: default;
-  pointer-events: none;
-  /* disabled until flap is open */
+  pointer-events: none; /* Disabled until flap is open */
   transition: box-shadow 0.3s ease;
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
-/* Stage 2: card is peeking and ready for the final reveal click */
+/* Stage 2 Card Pull State updates */
 .invitation-card.ready-to-pull {
   pointer-events: auto;
   cursor: pointer;
-  z-index: 20;
-  /* keep it below the envelope body (z-index 30) */
+  z-index: 20; /* Keep it below envelope body (30) & vine (35) until pulled completely free */
   box-shadow: 0 30px 40px -8px rgba(0, 0, 0, 0.25);
 }
 
 .invitation-card.ready-to-pull:hover {
   box-shadow: 0 36px 48px -8px rgba(0, 0, 0, 0.35);
 }
+
+/* Layer 30: Envelope Main Front Body Cover */
+.envelope-body {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 30;
+  object-fit: contain;
+  pointer-events: none; /* Clicks pass straight through to the card peek target zone */
+}
+
+/* Layer 35: Botanical Hero Vine Overlay Graphics */
+.envelope-vine-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -5;          /* Sits over front body (30) but loops under top closing flap (40) */
+  pointer-events: none; /* Transparent to interactions; mouse drops right down to clicks */
+  opacity: 0.9;
+}
+
+/* Layer 40: Upper Sealing Flap Group */
+.top-flap {
+  position: absolute;
+  top: 0;
+  left: 3.3em;
+  width: 85%;
+  height: 110%;
+  z-index: 40;
+  pointer-events: none; /* Clicks pass right through to hidden inner card features */
+  transform-origin: top;
+  transform-style: preserve-3d;
+}
+
+.flap-image {
+  position: absolute;
+  width: 70%;
+  height: auto;
+  top: 32%;
+  left: 44%;
+  transform: translate(-50%, -50%); /* Precise balancing offset alignment */
+  object-fit: contain;
+  transform-style: preserve-3d;
+}
+
+/* Layer 60: Interactive Wax Seal Button */
+.wax-seal {
+  position: absolute;
+  top: 52%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  width: 5em !important;
+  z-index: 60;          /* Highest element when closed to ensure secure clicking */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wax-seal:hover {
+  filter: brightness(1.1);
+}
+
+/* ==========================================================================
+   3. INVITATION INNER TEXT TYPOGRAPHY SIZING
+   ========================================================================== */
 
 .card-border {
   position: absolute;
@@ -108,65 +172,17 @@
   margin: 0;
 }
 
-.envelope-body {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 30;
-  object-fit: contain;
-  pointer-events: none;
-  /* clicks pass through to the peeking card tab */
-}
-
-.top-flap {
-  position: absolute;
-  top: 0;
-  left: 3.3em;
-  width: 85%;
-  height: 110%;
-  z-index: 40;
-  pointer-events: none;
-  /* Allows clicks to pass through to the card beneath */
-  transform-origin: top;
-  transform-style: preserve-3d;
-}
-
-.flap-image {
-  position: absolute;
-  width: 70%;
-  /* Changed from fixed 150svh */
-  height: auto;
-  /* Maintain aspect ratio */
-  top: 32%;
-  /* Center vertically */
-  left: 44%;
-  /* Center horizontally */
-  transform: translate(-50%, -50%);
-  /* Perfect centering */
-  object-fit: contain;
-  transform-style: preserve-3d;
-}
-
-.wax-seal {
-  position: absolute;
-  top: 52%;
-  left: 51%;
-  transform: translate(-50%, -50%);
-  width: 5em !important;
-  /* <-- ADD !important HERE */
-  z-index: 60;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
+/* ==========================================================================
+   4. MOBILE MEDIA OVERRIDES (Under 768px Viewports)
+   ========================================================================== */
 
 @media (max-width: 767px) {
+  .envelope-wrapper {
+    width: 350px;
+    height: 250px;
+  }
+
   .wax-seal {
     width: 5rem;
   }
-}
-
-.wax-seal:hover {
-  filter: brightness(1.1);
 }
