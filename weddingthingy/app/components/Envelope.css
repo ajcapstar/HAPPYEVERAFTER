@@ -28,7 +28,7 @@
    ========================================================================== */
 
 /* Layer 10: Base Backpiece */
-.envelope-back {
+.envelope-backgroundimage {
   position: absolute;
   inset: 0;
   background-color: #f3f2f1;
@@ -93,7 +93,52 @@
   z-index: -5;          /* Sits over front body (30) but loops under top closing flap (40) */
   pointer-events: none; /* Transparent to interactions; mouse drops right down to clicks */
   opacity: 0.9;
+  /* Allow children to float freely outside container if needed */
+  overflow: visible;
 }
+
+/* Individual Vine Positioning */
+.envelope-vine-background svg {
+  position: absolute;
+}
+
+/* Positioning for each unique vine element */
+.vine-1 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.vine-2 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.Br-vine-3{
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  transform: rotate(-15deg);
+}
+
+.vine-3 {
+  bottom: 5%;
+  right: 10%;
+  width: 150px;
+  height: auto;
+}
+
+.vine-4 {
+  top: 50%;
+  left: 5%;
+  width: 50px;
+  height: auto;
+}
+
+
 
 /* Layer 40: Upper Sealing Flap Group */
 .top-flap {
@@ -176,7 +221,7 @@
    4. MOBILE MEDIA OVERRIDES (Under 768px Viewports)
    ========================================================================== */
 
-@media (max-width: 767px) {
+@media (max-width: 1000px) {
   .envelope-wrapper {
     width: 350px;
     height: 250px;
