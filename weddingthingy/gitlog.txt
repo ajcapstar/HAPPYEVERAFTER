@@ -1,0 +1,25 @@
+86f8ccaa04323d361dc32cda8d239077a8543799 feat: implement interactive envelope opening animation with GSAP and CSS transitions
+0d5e4e7842e8d3ee62dcd076de53f751650e3058 feat: add interactive Envelope component with GSAP reveal animations
+df5f8c347a77dcc705977bb7c6badafd5223180c feat: implement interactive envelope opening animation with GSAP
+9d1b31c770d136ded2a8ccb3d5bfd59c33f9f298 feat: implement interactive animated envelope reveal component using GSAP
+f500826f94a5d7661ce9777539a022cf9de90982 feat: implement interactive envelope opening and card reveal animation component
+90bd10d8ff5821e53ee90be6edd4171d4a8a4e28 feat: add interactive envelope animation component with multi-stage GSAP transitions
+afa87ce5859c686ff71fdd1861e2f6868b016440 feat: add interactive Envelope component with GSAP animations for opening and revealing card
+59034135ee3c52060f2ea1f99c60034f80d72854 feat: implement interactive animated envelope reveal component using GSAP
+35fa29a667997b38c46092eafbe6039efe6aeba6 feat: add CSS styles for 3D envelope and invitation card interaction
+0106708b07aebd1723da46eaa3e172eecd7c9c34 feat: implement interactive envelope opening animation with GSAP and custom responsive image component
+d8d9b408914b0f25ae9ea0276d352f934b4d66cc fix: update turbopack root to absolute path in next.config.mjs
+b314c2f9c800e0fca556dd1cc519ff1d6839e3da chore: comment out image unoptimized configuration in next.config.mjs
+d278610bb87f07e7c52c928a2ea63cd42a7863cd feat: configure turbopack root directory in next.config.mjs
+d380da292456aa1148b61b3d6aaf32d50cc0fb9d refactor: simplify ResponsiveImage component and update next.config with image and transpilation settings
+04e91147dc3438bcec1421d5f2bb88ca9b352041 feat: add interactive envelope animation component with GSAP integration
+250503b9ab347e243958a675fa703142b7ff8d4b add infinite marquee section with GSAP scroll-triggered fade effect
+1a284470fc08f762c48aba82b36d0f7ef3f20510 adjust spotlight svg height to 99% to prevent overflow
+06f7ff38e895bc3e1b9a237acfd339fea1448110  adjust spotlight svg height to 99% to prevent overflow
+912b70add8d9fc0e55dce6064a028ee2a0ae92ff style: update background color, adjust SVG layout properties, and optimize image loading behavior
+665cd94de21bfc217029da1f60dc066547b24743 svg color change
+bf3e5cc8733a92ff728ce4eba12517b28f3f8882 feat: implement GSAP scroll-triggered SVG path animation and smooth scrolling with Lenis
+73e3334bf1dfbffcf041b0f96e81f8d29e1abd06 feat: update landing page layout with new content sections and responsive styling
+959df2a288dae6fc5e306d31a6c6b2a6932fb446 feat: implement ResponsiveImage component and add new assets with responsive layout styles
+8f605c7bcaf90205b6a819a3ddc5cafd2aa0096b implement ResponsiveImage component and add new assets with responsive layout styles
+34eb93c8673e635263e6a091140519b39be7fe58 begining f the wedding thiny

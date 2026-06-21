@@ -1,0 +1,124 @@
+/* ==========================================================================
+   ANIMATED TREE - LAYOUT & POSITIONING
+   ========================================================================== */
+
+/* 1. THE ENTIRE GROUP 
+   Use this to move the whole tree on X or Y axis within the envelope background.
+*/
+.tree-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  
+  /* POSITION CONTROLS */
+  transform: translate(0%, 0%) scale(1); /* Tweak percentages to move the whole group */
+  transform-origin: center center;
+}
+
+.tree-path {
+  fill: none;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
+  transition: filter 0.3s ease;
+}
+
+.tree-path:hover {
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+}
+
+/* Base SVG sizing */
+.tree-svg {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Individual Tree Group Positioning */
+.tree-1 {
+  max-width: 380px;
+  transform: translate(693px, -6px);
+}
+  
+.tree-2 {
+  max-width: 350px;
+  transform: translate(810px, 150px);
+}
+
+.tree-3 {
+  max-width: 250px;
+  transform: translate(814px, 319px);
+}
+.tree-4 {
+  max-width: 260px;
+  transform: translate(648px, 259px);
+}
+
+.tree-5 {
+  max-width: 210px;
+  transform: translate(473px, 280px);
+}
+
+.tree-6 {
+  max-width: 270px;
+  transform: translate(261px, 244px);
+}
+
+.tree-7 {
+  max-width: 452px;
+  transform: translate(92px, 246px);
+}
+.tree-8 {
+  max-width: 660px;
+  transform: translate(-5px, 166px);
+}
+.tree-9 {
+  max-width: 293px;
+  transform: translate(87px, -7px);
+}
+.tree-10{
+  max-width: 212px;
+  transform: translate(231px, -7px);
+}
+.tree-11 {
+  max-width: 190px;
+  transform: translate(459px, -2px);
+}
+.tree-12 {
+  max-width: 400px;
+  transform: translate(393px, -3px);
+}
+
+
+/* 2. INDIVIDUAL BRANCH FINE-TUNING
+   Use 'translate' to nudge specific branches that look out of place.
+   Use 'scale' to make a specific branch thicker/larger.
+*/
+
+.branch-top {
+  transform: translate(0px, 0px);
+}
+
+.branch-mid-top {
+  transform: translate(0px, 0px);
+}
+
+.branch-middle {
+  transform: translate(0px, 0px);
+}
+
+.branch-mid-base {
+  transform: translate(0px, 0px);
+}
+
+.branch-base {
+  transform: translate(0px, 0px);
+}
+
+/* Sequential classes for dense trees (e.g. Tree 8) */
+.branch-mid-1 { transform: translate(0px, 0px); }
+.branch-mid-2 { transform: translate(0px, 0px); }
+.branch-mid-3 { transform: translate(0px, 0px); }
+.branch-mid-4 { transform: translate(0px, 0px); }
