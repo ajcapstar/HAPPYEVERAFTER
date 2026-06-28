@@ -26,7 +26,7 @@ const Envelope = () => {
       duration: 0.6,
       ease: "back.in(1.7)",
     })
-      .to(".top-flap", { rotateX: 180, y: 70, duration: 1.2 }, "-=0.2")
+      .to(".top-flap", { rotateX: 180, y: 143, duration: 1.2 }, "-=0.2")
       .set(".top-flap", { zIndex: 15 }, "-=0.6")
       .to(
         ".invitation-card",
@@ -117,7 +117,7 @@ const Envelope = () => {
         </div>
 
         {/* 2. CARD LAYER */}
-        <div
+        {/* <div
           className={`invitation-card ${animationStage === "opened" ? "ready-to-pull" : ""}`}
           onClick={animationStage === "opened" ? handleFinalReveal : undefined}
         >
@@ -125,7 +125,7 @@ const Envelope = () => {
           <h2 className="card-title">Rachel & Michael</h2>
           <div className="card-divider" />
           <p className="card-subtitle">Save The Date</p>
-        </div>
+        </div> */}
 
         {/* 3. BODY LAYER */}
         <ResponsiveImage
